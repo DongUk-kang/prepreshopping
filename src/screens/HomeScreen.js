@@ -3,6 +3,8 @@ import {Row, Col, Card} from 'react-bootstrap'
 import ProductCard from "../components/ProductCard";
 import { listProducts } from "../actions/ProductAction";
 import { useSelector, useDispatch } from "react-redux";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 
 const HomeScreen = () => {
 
@@ -20,14 +22,23 @@ const HomeScreen = () => {
     return (
         <>
             <h1>Latest Products</h1>
-            <Row>
-                {products.map(item => (
-                    <Col key={item._id} sm={12} md={6} lg={4} xl={3}>
-                        <ProductCard product={item} />
-                    </Col>
-                ))}
-            </Row>
-
+            {loading ? (
+                <Loader />
+            ) : error ? (
+                <Message variant={"danger"}>
+                    {error}
+                </Message>
+            ) : (
+                <>
+                    <Row>
+                        {products.map((product) => (
+                            <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
+                                <ProductCard product={product} />
+                            </Col>
+                        ))}
+                    </Row>
+                </>
+            )}
 
         </>
     );
