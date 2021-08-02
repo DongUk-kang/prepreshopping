@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Button } from "react-bootstrap";
 import FormContainer from "../components/FormContainer";
+import CheckoutSteps from "../components/CheckoutSteps";
 
 const ShippingScreen = () => {
 
@@ -23,6 +24,7 @@ const ShippingScreen = () => {
     }
     return (
         <FormContainer>
+            <CheckoutSteps />
             <h1>Shipping</h1>
             <Form onSubmit={submitShipping}>
                 <Form.Group controlId={'address'}>

@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Header from "./components/Header";
 import {Container} from "react-bootstrap";
 import Footer from "./components/Footer";
-import HomeScreen from "./Screens/HomeScreen";
-import ProductScreen from "./Screens/ProductScreen";
-import LoginScreen from "./Screens/LoginScreen";
-import RegisterScreen from "./Screens/RegisterScreen";
-import CartScreen from "./Screens/CartScreen";
-import PaymentScreen from "./Screens/PaymentScreen";
-import ShippingScreen from "./Screens/ShippingScreen";
+import HomeScreen from "./screens/HomeScreen";
+import ProductScreen from "./screens/ProductScreen";
+import LoginScreen from "./screens/LoginScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+import CartScreen from "./screens/CartScreen";
+import PaymentScreen from "./screens/PaymentScreen";
+import ShippingScreen from "./screens/ShippingScreen";
+import PlaceOrder from "./screens/PlaceOrder";
 
 const App = () => {
     return (
@@ -24,6 +25,7 @@ const App = () => {
                     <Route path={"/cart"} exact component={CartScreen} />
                     <Route path={"/shipping"} exact component={ShippingScreen} />
                     <Route path={"/payment"} exact component={PaymentScreen} />
+                    <Route path={"/placeorder"} exact conponent={PlaceOrder} />
                 </Container>
             </main>
             <Footer />
