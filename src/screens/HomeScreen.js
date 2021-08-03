@@ -1,20 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import {Row, Col, Card} from 'react-bootstrap'
-import ProductCard from "../components/ProductCard";
-import { listProducts } from "../actions/ProductAction";
-import { useSelector, useDispatch } from "react-redux";
-import Loader from "../components/Loader";
-import Message from "../components/Message";
+import React, { useEffect} from 'react';
+import {Row, Col} from 'react-bootstrap'
+import { Loader, Message, ProductCard } from "../components"
+import { listProducts } from "../actions/ProductAction"
+import { useDispatch, useSelector } from 'react-redux'
+
 
 const HomeScreen = () => {
 
     const dispatch = useDispatch()
     const productList = useSelector((state) => state.productList)
-    const { loading, error, products } = productList
+    const {loading, error, products} = productList
     console.log(products)
 
-
-    useEffect(() =>{
+    useEffect(() => {
         dispatch(listProducts())
     }, [dispatch])
 
